@@ -51,19 +51,14 @@ final class FeedController: UIViewController {
         locator.stopUpdating()
         
         locator.getCurrentLocation()
-            .then(printMyLocation)
+            .then(getNearbyPlaces)
     }
     
-    private func printMyLocation(_ location: CLLocation) {
-        // provider.get(by: location.coordinate)
-        
-        provider.get(by: location.coordinate).then { placeList in
-            log.debug(placeList.count)
-            
-            for place in placeList {
-                log.debug(place.name)
-            }
-        }
+    private func getNearbyPlaces(_ location: CLLocation) {
+        provider.get(by: location.coordinate).then(updateView)
+    }
+    
+    private func updateView(with placeList: [PlaceModel]) {
     }
     
     // MARK: - Actions
