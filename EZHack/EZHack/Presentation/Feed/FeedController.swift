@@ -94,6 +94,10 @@ extension FeedController: UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+    
     private func buildModel(using item: PlaceModel) -> PlaceDisplayModel {
         let cat = item.categories.first == "point_of_interest" ? "достопримечательность" : item.categories[0]
         
