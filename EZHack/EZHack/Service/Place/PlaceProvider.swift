@@ -38,9 +38,32 @@ public final class PlaceProvider {
                           parameters: query,
                           encoding: URLEncoding(destination: .queryString),
                           headers: nil)
-            .responseJSON { placeList.fulfill(self.parsePlaceList($0)) }
+            .responseJSON {
+                let data = $0.data!
+                let firstPageResults = self.parsePlaceList(data)
+                if firstPageResults.items.count >= 20 {
+                    self.getNextPage(with: firstPageResults.token, result: {
+                        let fullList = firstPageResults.items + $0
+                        placeList.fulfill(fullList)
+                    })
+                } else {
+                    placeList.fulfill(self.parsePlaceList(data).items)
+                }
+            }
         
         return placeList
+    }
+    
+    private func getNextPage(with token: String, result: @escaping ([PlaceModel]) -> Void) {
+        let str = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=\(PlaceProvider.apiKEY)&pagetoken=\(token)"
+        let url = URL(string: str)!
+        
+        URLSession.shared.dataTask(with: url, completionHandler: { data, _, _ in
+            guard let data = data else { return }
+            let parsed = self.parsePlaceList(data)
+            result(parsed.items)
+            
+        }).resume()
     }
     
     private func params(for location: CLLocationCoordinate2D, radius: Double, rank: PlaceRankType) -> [String: String] {
@@ -51,20 +74,14 @@ public final class PlaceProvider {
                 "sensor": "true"]
     }
     
-    private func parsePlaceList(_ response: DataResponse<Any>) -> [PlaceModel] {
+    private func parsePlaceList(_ response: Data) -> (token: String, items: [PlaceModel]) {
         var modelList = [PlaceModel]()
         
-        guard let data = response.data else {
-            log.warning("no data in response")
-            return modelList
-        }
-        
-        guard let json = try? JSON(data: data) else {
-            log.warning("Can't init JSON!")
-            return modelList
-        }
+        let json = try! JSON(data: response)
         
         let results = json["results"].arrayValue
+        let nextPageToken = json["next_page_token"].stringValue
+        
         for place in results {
             let geom = place["geometry"].dictionary!
             let locationObject = geom["location"]!.dictionary!
@@ -88,6 +105,6 @@ public final class PlaceProvider {
             modelList.append(newModel)
         }
         
-        return modelList
+        return (nextPageToken, modelList)
     }
 }

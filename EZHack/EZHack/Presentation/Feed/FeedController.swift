@@ -55,12 +55,14 @@ final class FeedController: UIViewController {
     }
     
     private func printMyLocation(_ location: CLLocation) {
-        //provider.get(by: location.coordinate)
+        // provider.get(by: location.coordinate)
         
-        placesClient.currentPlace { list, err in
-            guard let list = list else { log.warning(err?.localizedDescription); return }
+        provider.get(by: location.coordinate).then { placeList in
+            log.debug(placeList.count)
             
-            let v = list.likelihoods
+            for place in placeList {
+                log.debug(place.name)
+            }
         }
     }
     
