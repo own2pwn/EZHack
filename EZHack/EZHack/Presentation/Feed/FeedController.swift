@@ -14,6 +14,8 @@ final class FeedController: UIViewController {
 
     // MARK: - Outlets
     
+    @IBOutlet var placeTableView: UITableView!
+    
     // MARK: - Overrides
     
     override func viewDidLoad() {

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D1D4EF71FE627DE4F2DEFA37 /* Pods_EZHack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887B89DCE2EEEE8358D72994 /* Pods_EZHack.framework */; };
+		DE19D8B2208B6D7900F9F507 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE19D8B1208B6D7900F9F507 /* PlaceCell.swift */; };
+		DE19D8C9208B6DB000F9F507 /* Cell+Reuse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE19D8C8208B6DB000F9F507 /* Cell+Reuse.swift */; };
 		DE611037208B38BD00AD226F /* PlaceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE611036208B38BD00AD226F /* PlaceProvider.swift */; };
 		DE611053208B392F00AD226F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE611045208B392200AD226F /* Alamofire.framework */; };
 		DE611054208B392F00AD226F /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE611045208B392200AD226F /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -229,6 +231,8 @@
 		7531A13DC240221D20214AFB /* Pods-EZHack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EZHack.release.xcconfig"; path = "Pods/Target Support Files/Pods-EZHack/Pods-EZHack.release.xcconfig"; sourceTree = "<group>"; };
 		887B89DCE2EEEE8358D72994 /* Pods_EZHack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EZHack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8ECF0B79B468DAADB8A320E /* Pods-EZHack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EZHack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EZHack/Pods-EZHack.debug.xcconfig"; sourceTree = "<group>"; };
+		DE19D8B1208B6D7900F9F507 /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
+		DE19D8C8208B6DB000F9F507 /* Cell+Reuse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Cell+Reuse.swift"; path = "../../../../rxDrug/rxDrug/rxDrug/Extension/UIKit/Cell+Reuse.swift"; sourceTree = "<group>"; };
 		DE309C98208B349800441E1E /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		DE309C9A208B34A000441E1E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		DE309C9C208B34A400441E1E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -292,8 +296,8 @@
 		DE611035208B384600AD226F /* Place */ = {
 			isa = PBXGroup;
 			children = (
-				DE611036208B38BD00AD226F /* PlaceProvider.swift */,
 				DE80F08A208B39AC00FB68BC /* PlaceModel.swift */,
+				DE611036208B38BD00AD226F /* PlaceProvider.swift */,
 			);
 			path = Place;
 			sourceTree = "<group>";
@@ -323,10 +327,10 @@
 		DE73D848208B2EAF0079B13E /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				DE80F099208B3A0900FB68BC /* SwiftyJSON.xcodeproj */,
 				DE611039208B392100AD226F /* Alamofire.xcodeproj */,
 				DE73D84E208B2F0D0079B13E /* Promise.xcodeproj */,
 				DE73D85B208B2FBC0079B13E /* SwiftyBeaver.xcodeproj */,
+				DE80F099208B3A0900FB68BC /* SwiftyJSON.xcodeproj */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -350,9 +354,9 @@
 		DE73D84B208B2EBD0079B13E /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				DED20EFF208B3003002D169D /* Location */,
 				DE611057208B393600AD226F /* Network */,
 				DE611035208B384600AD226F /* Place */,
-				DED20EFF208B3003002D169D /* Location */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -370,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				DEBB3B88208A752900152C8B /* Main.storyboard */,
+				DE19D8B1208B6D7900F9F507 /* PlaceCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -445,8 +450,8 @@
 			children = (
 				DEBB3B83208A752900152C8B /* EZHack */,
 				DE73D86D208B2FC90079B13E /* Frameworks */,
-				DEBB3B82208A752900152C8B /* Products */,
 				08144E665FE0D3CA6D4B7D8E /* Pods */,
+				DEBB3B82208A752900152C8B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -486,6 +491,7 @@
 		DED20F04208B301D002D169D /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				DE19D8C8208B6DB000F9F507 /* Cell+Reuse.swift */,
 				DED20F06208B3026002D169D /* Promise */,
 				DED20F05208B3022002D169D /* Type */,
 			);
@@ -819,10 +825,12 @@
 				DEBB3B87208A752900152C8B /* FeedController.swift in Sources */,
 				DED20F08208B302E002D169D /* EPType+Promise.swift in Sources */,
 				DE73D85A208B2FAC0079B13E /* Logger.swift in Sources */,
+				DE19D8C9208B6DB000F9F507 /* Cell+Reuse.swift in Sources */,
 				DE80F08B208B39AC00FB68BC /* PlaceModel.swift in Sources */,
 				DED20F03208B3003002D169D /* LocationUpdateListener.swift in Sources */,
 				DE611037208B38BD00AD226F /* PlaceProvider.swift in Sources */,
 				DEBB3B85208A752900152C8B /* AppDelegate.swift in Sources */,
+				DE19D8B2208B6D7900F9F507 /* PlaceCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
