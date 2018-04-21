@@ -11,6 +11,7 @@
 		DE19D8B2208B6D7900F9F507 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE19D8B1208B6D7900F9F507 /* PlaceCell.swift */; };
 		DE19D8C9208B6DB000F9F507 /* Cell+Reuse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE19D8C8208B6DB000F9F507 /* Cell+Reuse.swift */; };
 		DE19D8CC208B7C4000F9F507 /* CLLocationCoordinate2D+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE19D8CB208B7C4000F9F507 /* CLLocationCoordinate2D+Distance.swift */; };
+		DE31CEEB208B91CF0053313A /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE31CEEA208B91CF0053313A /* SettingsController.swift */; };
 		DE611037208B38BD00AD226F /* PlaceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE611036208B38BD00AD226F /* PlaceProvider.swift */; };
 		DE611053208B392F00AD226F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE611045208B392200AD226F /* Alamofire.framework */; };
 		DE611054208B392F00AD226F /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE611045208B392200AD226F /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -36,6 +37,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		DE31CED7208B90C90053313A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE31CEC4208B90C80053313A /* Slider.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1176CDD81F97F87F00C75DFC;
+			remoteInfo = Slider;
+		};
 		DE611044208B392200AD226F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DE611039208B392100AD226F /* Alamofire.xcodeproj */;
@@ -307,6 +315,8 @@
 		DE309CAC208B34D900441E1E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DE309CAE208B34DF00441E1E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		DE309CB0208B34E300441E1E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DE31CEC4208B90C80053313A /* Slider.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Slider.xcodeproj; path = "../../../../Lib/fluid-slider/Slider.xcodeproj"; sourceTree = "<group>"; };
+		DE31CEEA208B91CF0053313A /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		DE611036208B38BD00AD226F /* PlaceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceProvider.swift; sourceTree = "<group>"; };
 		DE611039208B392100AD226F /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = ../../../../Lib/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		DE611058208B393E00AD226F /* RequestSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSender.swift; sourceTree = "<group>"; };
@@ -356,6 +366,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		DE31CEC5208B90C80053313A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DE31CED8208B90C90053313A /* Slider.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DE31CEE9208B91C60053313A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DE31CEEA208B91CF0053313A /* SettingsController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		DE611035208B384600AD226F /* Place */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,6 +416,7 @@
 		DE73D848208B2EAF0079B13E /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				DE31CEC4208B90C80053313A /* Slider.xcodeproj */,
 				DECE7672208B80F8005E4F88 /* Kingfisher.xcodeproj */,
 				DE611039208B392100AD226F /* Alamofire.xcodeproj */,
 				DE73D84E208B2F0D0079B13E /* Promise.xcodeproj */,
@@ -402,6 +429,7 @@
 		DE73D849208B2EB20079B13E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DE31CEE9208B91C60053313A /* Settings */,
 				DE73D84C208B2EC40079B13E /* Feed */,
 			);
 			path = Presentation;
@@ -664,6 +692,10 @@
 					ProjectRef = DE73D84E208B2F0D0079B13E /* Promise.xcodeproj */;
 				},
 				{
+					ProductGroup = DE31CEC5208B90C80053313A /* Products */;
+					ProjectRef = DE31CEC4208B90C80053313A /* Slider.xcodeproj */;
+				},
+				{
 					ProductGroup = DE73D85C208B2FBC0079B13E /* Products */;
 					ProjectRef = DE73D85B208B2FBC0079B13E /* SwiftyBeaver.xcodeproj */;
 				},
@@ -680,6 +712,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		DE31CED8208B90C90053313A /* Slider.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Slider.framework;
+			remoteRef = DE31CED7208B90C90053313A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		DE611045208B392200AD226F /* Alamofire.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -917,9 +956,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-EZHack/Pods-EZHack-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/fluid-slider/fluid_slider.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/fluid_slider.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -957,6 +1001,7 @@
 				DED20F0A208B3031002D169D /* EPType.swift in Sources */,
 				DEBB3B87208A752900152C8B /* FeedController.swift in Sources */,
 				DED20F08208B302E002D169D /* EPType+Promise.swift in Sources */,
+				DE31CEEB208B91CF0053313A /* SettingsController.swift in Sources */,
 				DE73D85A208B2FAC0079B13E /* Logger.swift in Sources */,
 				DE19D8C9208B6DB000F9F507 /* Cell+Reuse.swift in Sources */,
 				DE80F08B208B39AC00FB68BC /* PlaceModel.swift in Sources */,

@@ -1,4 +1,6 @@
 PODS:
+  - fluid-slider (0.0.6):
+    - pop
   - GoogleMaps (2.5.0):
     - GoogleMaps/Maps (= 2.5.0)
   - GoogleMaps/Base (2.5.0)
@@ -6,15 +8,19 @@ PODS:
     - GoogleMaps/Base
   - GooglePlaces (2.5.0):
     - GoogleMaps/Base (= 2.5.0)
+  - pop (1.0.10)
 
 DEPENDENCIES:
+  - fluid-slider
   - GoogleMaps
   - GooglePlaces
 
 SPEC CHECKSUMS:
+  fluid-slider: 3aeb48bd7f875dc0431963fde12674e69c7c0ed2
   GoogleMaps: c087b8e5dfe87ca6ebf59adb9b4894a4146bec4f
   GooglePlaces: dd70d9d71ea1c7944846afe67de3712c99b30a77
+  pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
 
-PODFILE CHECKSUM: 75369783df367ac684429abc407d641609bebfd0
+PODFILE CHECKSUM: 3e98644291429b0c4f083ed683c9fafbed58f304
 
 COCOAPODS: 1.3.1
