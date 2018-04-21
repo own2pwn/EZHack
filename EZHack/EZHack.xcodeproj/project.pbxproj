@@ -13,6 +13,7 @@
 		DE19D8CC208B7C4000F9F507 /* CLLocationCoordinate2D+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE19D8CB208B7C4000F9F507 /* CLLocationCoordinate2D+Distance.swift */; };
 		DE31CEEB208B91CF0053313A /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE31CEEA208B91CF0053313A /* SettingsController.swift */; };
 		DE5462B9208BA519009375DE /* UIView+Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE54629D208BA519009375DE /* UIView+Tap.swift */; };
+		DE5462BB208BAF5C009375DE /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5462BA208BAF5C009375DE /* SettingsCell.swift */; };
 		DE611037208B38BD00AD226F /* PlaceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE611036208B38BD00AD226F /* PlaceProvider.swift */; };
 		DE611053208B392F00AD226F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE611045208B392200AD226F /* Alamofire.framework */; };
 		DE611054208B392F00AD226F /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE611045208B392200AD226F /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -319,6 +320,7 @@
 		DE31CEC4208B90C80053313A /* Slider.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Slider.xcodeproj; path = "../../../../Lib/fluid-slider/Slider.xcodeproj"; sourceTree = "<group>"; };
 		DE31CEEA208B91CF0053313A /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		DE54629D208BA519009375DE /* UIView+Tap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Tap.swift"; sourceTree = "<group>"; };
+		DE5462BA208BAF5C009375DE /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		DE611036208B38BD00AD226F /* PlaceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceProvider.swift; sourceTree = "<group>"; };
 		DE611039208B392100AD226F /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = ../../../../Lib/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		DE611058208B393E00AD226F /* RequestSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSender.swift; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				DE31CEEA208B91CF0053313A /* SettingsController.swift */,
+				DE5462BA208BAF5C009375DE /* SettingsCell.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1003,6 +1006,7 @@
 				DED20F02208B3003002D169D /* LocationManager.swift in Sources */,
 				DED20F0C208B3035002D169D /* Promise+Optional.swift in Sources */,
 				DE611059208B393E00AD226F /* RequestSender.swift in Sources */,
+				DE5462BB208BAF5C009375DE /* SettingsCell.swift in Sources */,
 				DED20F0A208B3031002D169D /* EPType.swift in Sources */,
 				DE5462B9208BA519009375DE /* UIView+Tap.swift in Sources */,
 				DEBB3B87208A752900152C8B /* FeedController.swift in Sources */,

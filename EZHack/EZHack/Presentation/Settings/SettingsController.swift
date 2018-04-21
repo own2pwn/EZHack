@@ -10,6 +10,17 @@ import fluid_slider
 import M13Checkbox
 import UIKit
 
+enum SortType {
+    case distance
+    case rating
+}
+
+public extension Bool {
+    public mutating func toggle() {
+        self = !self
+    }
+}
+
 final class SettingsController: UIViewController {
 
     // MARK: - Outlets
@@ -20,6 +31,12 @@ final class SettingsController: UIViewController {
     
     @IBOutlet var checkboxButton: M13Checkbox!
     
+    @IBOutlet var nonWorkingView: UIView!
+    
+    @IBOutlet var nonWorkingCheckbox: M13Checkbox!
+    
+    @IBOutlet var titleTableView: UITableView!
+    
     // MARK: - Overrides
     
     override func viewDidLoad() {
@@ -27,6 +44,17 @@ final class SettingsController: UIViewController {
         
         setupScreen()
     }
+    
+    // MARK: - Members
+    
+    private var shouldConsiderWeather = false
+    
+    private var sortType: SortType = .distance
+    
+    private var shouldConsiderClosed = false
+    
+    let categoryTitles = ["Entertainment", "Beauty", "shopping", "restaurant", "park", "museum",
+                          "cafe", "bar"].map { $0.capitalized }
     
     // MARK: - Methods
     
@@ -39,11 +67,34 @@ final class SettingsController: UIViewController {
         setup.forEach { $0() }
         
         useWeatherView.tapHandler = onWeatherTap
+        nonWorkingView.tapHandler = onNonWorkingTap
+        
+        titleTableView.tableFooterView = UIView()
     }
+    
+    //
     
     private func onWeatherTap() {
         checkboxButton.toggleCheckState(true)
+        toggleConsiderWeather(checkboxButton)
     }
+    
+    @IBAction func toggleConsiderWeather(_ sender: M13Checkbox) {
+        shouldConsiderWeather.toggle()
+    }
+    
+    //
+    
+    private func onNonWorkingTap() {
+        nonWorkingCheckbox.toggleCheckState(true)
+        toggleNonWorking(nonWorkingCheckbox)
+    }
+    
+    @IBAction func toggleNonWorking(_ sender: M13Checkbox) {
+        shouldConsiderClosed.toggle()
+    }
+    
+    //
     
     private func setColors() {
     }
@@ -73,5 +124,30 @@ final class SettingsController: UIViewController {
         }
         
         distanceSlider.fraction = (2_500 - 200) / 5_000
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func changeSort(_ sender: UISegmentedControl) {
+        sortType = sender.selectedSegmentIndex == 0 ? .distance : .rating
+    }
+}
+
+extension SettingsController: UITableViewDelegate {
+}
+
+extension SettingsController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return categoryTitles.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: SettingsCell = tableView.dequeueReusableCell(at: indexPath)
+        
+        let item = categoryTitles[indexPath.row]
+        cell.titleLabel.text = item
+        cell.selectionStyle = .none
+        
+        return cell
     }
 }
