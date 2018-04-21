@@ -6,6 +6,7 @@
 //  Copyright © 2018 Evgeniy. All rights reserved.
 //
 
+import CoreLocation
 import UIKit
 
 final class FeedController: UIViewController {
@@ -20,6 +21,10 @@ final class FeedController: UIViewController {
         setupScreen()
     }
     
+    // MARK: - Members
+    
+    private let locator = LocationManager()
+    
     // MARK: - Methods
     
     private func setupScreen() {
@@ -27,10 +32,29 @@ final class FeedController: UIViewController {
     }
     
     private func setup() {
-        let setup = [setColors]
+        let setup = [setColors, testMyLocation]
         setup.forEach { $0() }
     }
     
     private func setColors() {
+    }
+    
+    private func testMyLocation() {
+        locator.checkRights()
+        locator.startUpdating()
+        locator.stopUpdating()
+        
+        locator.getCurrentLocation()
+            .then(printMyLocation)
+    }
+    
+    private func printMyLocation(_ location: CLLocation) {
+        log.debug("got location - \(location)")
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func retestLocation(_ sender: UIButton) {
+        testMyLocation()
     }
 }

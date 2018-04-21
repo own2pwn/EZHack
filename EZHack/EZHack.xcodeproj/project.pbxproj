@@ -7,19 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1D4EF71FE627DE4F2DEFA37 /* Pods_EZHack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887B89DCE2EEEE8358D72994 /* Pods_EZHack.framework */; };
 		DE73D85A208B2FAC0079B13E /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE73D859208B2FAC0079B13E /* Logger.swift */; };
-		DE73D86E208B2FC90079B13E /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE73D864208B2FBC0079B13E /* SwiftyBeaver.framework */; };
 		DEBB3B85208A752900152C8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBB3B84208A752900152C8B /* AppDelegate.swift */; };
 		DEBB3B87208A752900152C8B /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBB3B86208A752900152C8B /* FeedController.swift */; };
 		DEBB3B8A208A752900152C8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEBB3B88208A752900152C8B /* Main.storyboard */; };
 		DEBB3B8C208A752900152C8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEBB3B8B208A752900152C8B /* Assets.xcassets */; };
 		DEBB3B8F208A752900152C8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEBB3B8D208A752900152C8B /* LaunchScreen.storyboard */; };
-		DED20EF8208B2FE6002D169D /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE73D855208B2F0D0079B13E /* Promise.framework */; };
 		DED20F02208B3003002D169D /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED20F00208B3003002D169D /* LocationManager.swift */; };
 		DED20F03208B3003002D169D /* LocationUpdateListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED20F01208B3003002D169D /* LocationUpdateListener.swift */; };
 		DED20F08208B302E002D169D /* EPType+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED20F07208B302E002D169D /* EPType+Promise.swift */; };
 		DED20F0A208B3031002D169D /* EPType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED20F09208B3031002D169D /* EPType.swift */; };
 		DED20F0C208B3035002D169D /* Promise+Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED20F0B208B3035002D169D /* Promise+Optional.swift */; };
+		DED20F18208B3194002D169D /* Promise.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE73D855208B2F0D0079B13E /* Promise.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DED20F1C208B3194002D169D /* SwiftyBeaver.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE73D864208B2FBC0079B13E /* SwiftyBeaver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,9 +73,54 @@
 			remoteGlobalIDString = ACE597A61C18832E0031451F;
 			remoteInfo = "SwiftyBeaver (macOS)";
 		};
+		DED20F19208B3194002D169D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE73D84E208B2F0D0079B13E /* Promise.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 3454F9CD1D4FACD000985BBF;
+			remoteInfo = Promise;
+		};
+		DED20F1D208B3194002D169D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE73D85B208B2FBC0079B13E /* SwiftyBeaver.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9EDCE3E31C09D211002FA4A7;
+			remoteInfo = "SwiftyBeaver (iOS)";
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		DED20F1F208B3194002D169D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DED20F18208B3194002D169D /* Promise.framework in Embed Frameworks */,
+				DED20F1C208B3194002D169D /* SwiftyBeaver.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		7531A13DC240221D20214AFB /* Pods-EZHack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EZHack.release.xcconfig"; path = "Pods/Target Support Files/Pods-EZHack/Pods-EZHack.release.xcconfig"; sourceTree = "<group>"; };
+		887B89DCE2EEEE8358D72994 /* Pods_EZHack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EZHack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8ECF0B79B468DAADB8A320E /* Pods-EZHack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EZHack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EZHack/Pods-EZHack.debug.xcconfig"; sourceTree = "<group>"; };
+		DE309C98208B349800441E1E /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		DE309C9A208B34A000441E1E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		DE309C9C208B34A400441E1E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DE309C9E208B34A900441E1E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		DE309CA0208B34B000441E1E /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		DE309CA2208B34B600441E1E /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		DE309CA4208B34BC00441E1E /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		DE309CA6208B34C700441E1E /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		DE309CA8208B34CD00441E1E /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		DE309CAA208B34D300441E1E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		DE309CAC208B34D900441E1E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		DE309CAE208B34DF00441E1E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		DE309CB0208B34E300441E1E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DE73D84E208B2F0D0079B13E /* Promise.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Promise.xcodeproj; path = ../../../../Lib/Promise/Promise.xcodeproj; sourceTree = "<group>"; };
 		DE73D859208B2FAC0079B13E /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		DE73D85B208B2FBC0079B13E /* SwiftyBeaver.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyBeaver.xcodeproj; path = ../../../../Lib/SwiftyBeaver/SwiftyBeaver.xcodeproj; sourceTree = "<group>"; };
@@ -90,6 +136,8 @@
 		DED20F07208B302E002D169D /* EPType+Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EPType+Promise.swift"; sourceTree = "<group>"; };
 		DED20F09208B3031002D169D /* EPType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPType.swift; sourceTree = "<group>"; };
 		DED20F0B208B3035002D169D /* Promise+Optional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+Optional.swift"; sourceTree = "<group>"; };
+		DED20F21208B33AE002D169D /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = "EZHack/lib/Google/GooglePlaces-2.0.1/Frameworks/GooglePlaces.framework"; sourceTree = "<group>"; };
+		DED20F23208B33BF002D169D /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = "EZHack/lib/Google/GoogleMaps-2.0.1/Subspecs/Base/Frameworks/GoogleMapsBase.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,17 +145,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DED20EF8208B2FE6002D169D /* Promise.framework in Frameworks */,
-				DE73D86E208B2FC90079B13E /* SwiftyBeaver.framework in Frameworks */,
+				D1D4EF71FE627DE4F2DEFA37 /* Pods_EZHack.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08144E665FE0D3CA6D4B7D8E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D8ECF0B79B468DAADB8A320E /* Pods-EZHack.debug.xcconfig */,
+				7531A13DC240221D20214AFB /* Pods-EZHack.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		DE73D848208B2EAF0079B13E /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				DED20F20208B3381002D169D /* Google */,
 				DE73D84E208B2F0D0079B13E /* Promise.xcodeproj */,
 				DE73D85B208B2FBC0079B13E /* SwiftyBeaver.xcodeproj */,
 			);
@@ -187,6 +244,22 @@
 		DE73D86D208B2FC90079B13E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DE309CB0208B34E300441E1E /* UIKit.framework */,
+				DE309CAE208B34DF00441E1E /* SystemConfiguration.framework */,
+				DE309CAC208B34D900441E1E /* QuartzCore.framework */,
+				DE309CAA208B34D300441E1E /* OpenGLES.framework */,
+				DE309CA8208B34CD00441E1E /* libz.tbd */,
+				DE309CA6208B34C700441E1E /* libc++.tbd */,
+				DE309CA4208B34BC00441E1E /* ImageIO.framework */,
+				DE309CA2208B34B600441E1E /* GLKit.framework */,
+				DE309CA0208B34B000441E1E /* CoreText.framework */,
+				DE309C9E208B34A900441E1E /* CoreLocation.framework */,
+				DE309C9C208B34A400441E1E /* CoreGraphics.framework */,
+				DE309C9A208B34A000441E1E /* CoreData.framework */,
+				DE309C98208B349800441E1E /* Accelerate.framework */,
+				DED20F23208B33BF002D169D /* GoogleMapsBase.framework */,
+				DED20F21208B33AE002D169D /* GooglePlaces.framework */,
+				887B89DCE2EEEE8358D72994 /* Pods_EZHack.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -197,6 +270,7 @@
 				DEBB3B83208A752900152C8B /* EZHack */,
 				DE73D86D208B2FC90079B13E /* Frameworks */,
 				DEBB3B82208A752900152C8B /* Products */,
+				08144E665FE0D3CA6D4B7D8E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -259,6 +333,13 @@
 			path = Promise;
 			sourceTree = "<group>";
 		};
+		DED20F20208B3381002D169D /* Google */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Google;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -266,13 +347,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DEBB3B93208A752900152C8B /* Build configuration list for PBXNativeTarget "EZHack" */;
 			buildPhases = (
+				B9C8640164B456C645586721 /* [CP] Check Pods Manifest.lock */,
 				DEBB3B7D208A752900152C8B /* Sources */,
 				DEBB3B7E208A752900152C8B /* Frameworks */,
 				DEBB3B7F208A752900152C8B /* Resources */,
+				DED20F1F208B3194002D169D /* Embed Frameworks */,
+				75F832BC791B8A81B0E18708 /* [CP] Embed Pods Frameworks */,
+				5E8BF1551BA1ADD8E51C51A5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DED20F1A208B3194002D169D /* PBXTargetDependency */,
+				DED20F1E208B3194002D169D /* PBXTargetDependency */,
 			);
 			name = EZHack;
 			productName = EZHack;
@@ -388,6 +475,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5E8BF1551BA1ADD8E51C51A5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-EZHack/Pods-EZHack-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EZHack/Pods-EZHack-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75F832BC791B8A81B0E18708 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EZHack/Pods-EZHack-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9C8640164B456C645586721 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EZHack-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DEBB3B7D208A752900152C8B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -405,6 +547,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DED20F1A208B3194002D169D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Promise;
+			targetProxy = DED20F19208B3194002D169D /* PBXContainerItemProxy */;
+		};
+		DED20F1E208B3194002D169D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SwiftyBeaver (iOS)";
+			targetProxy = DED20F1D208B3194002D169D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DEBB3B88208A752900152C8B /* Main.storyboard */ = {
@@ -479,6 +634,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -529,6 +685,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
@@ -537,10 +694,17 @@
 		};
 		DEBB3B94208A752900152C8B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8ECF0B79B468DAADB8A320E /* Pods-EZHack.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VD97XKT54M;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EZHack/lib/Google/GooglePlaces-2.0.1/Frameworks",
+					"$(PROJECT_DIR)/EZHack/lib/Google/GoogleMaps-2.0.1/Subspecs/Base/Frameworks",
+				);
 				INFOPLIST_FILE = EZHack/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = own2pwn.pp.EZHack;
@@ -552,10 +716,17 @@
 		};
 		DEBB3B95208A752900152C8B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7531A13DC240221D20214AFB /* Pods-EZHack.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VD97XKT54M;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EZHack/lib/Google/GooglePlaces-2.0.1/Frameworks",
+					"$(PROJECT_DIR)/EZHack/lib/Google/GoogleMaps-2.0.1/Subspecs/Base/Frameworks",
+				);
 				INFOPLIST_FILE = EZHack/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = own2pwn.pp.EZHack;
