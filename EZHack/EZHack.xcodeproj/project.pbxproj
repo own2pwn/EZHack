@@ -108,8 +108,8 @@
 		DE73D848208B2EAF0079B13E /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				DE73D85B208B2FBC0079B13E /* SwiftyBeaver.xcodeproj */,
 				DE73D84E208B2F0D0079B13E /* Promise.xcodeproj */,
+				DE73D85B208B2FBC0079B13E /* SwiftyBeaver.xcodeproj */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -141,8 +141,8 @@
 		DE73D84C208B2EC40079B13E /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				DEBB3B86208A752900152C8B /* FeedController.swift */,
 				DE73D84D208B2EC80079B13E /* View */,
+				DEBB3B86208A752900152C8B /* FeedController.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -195,8 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				DEBB3B83208A752900152C8B /* EZHack */,
-				DEBB3B82208A752900152C8B /* Products */,
 				DE73D86D208B2FC90079B13E /* Frameworks */,
+				DEBB3B82208A752900152C8B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -211,15 +211,15 @@
 		DEBB3B83208A752900152C8B /* EZHack */ = {
 			isa = PBXGroup;
 			children = (
-				DED20F04208B301D002D169D /* Extension */,
-				DE73D858208B2FA50079B13E /* Common */,
-				DE73D84B208B2EBD0079B13E /* Service */,
 				DE73D84A208B2EB60079B13E /* Art */,
+				DE73D858208B2FA50079B13E /* Common */,
+				DED20F04208B301D002D169D /* Extension */,
 				DE73D849208B2EB20079B13E /* Presentation */,
+				DE73D84B208B2EBD0079B13E /* Service */,
 				DE73D848208B2EAF0079B13E /* lib */,
 				DEBB3B84208A752900152C8B /* AppDelegate.swift */,
-				DEBB3B8D208A752900152C8B /* LaunchScreen.storyboard */,
 				DEBB3B90208A752900152C8B /* Info.plist */,
+				DEBB3B8D208A752900152C8B /* LaunchScreen.storyboard */,
 			);
 			path = EZHack;
 			sourceTree = "<group>";
@@ -253,8 +253,8 @@
 		DED20F06208B3026002D169D /* Promise */ = {
 			isa = PBXGroup;
 			children = (
-				DED20F0B208B3035002D169D /* Promise+Optional.swift */,
 				DED20F07208B302E002D169D /* EPType+Promise.swift */,
+				DED20F0B208B3035002D169D /* Promise+Optional.swift */,
 			);
 			path = Promise;
 			sourceTree = "<group>";
@@ -413,6 +413,7 @@
 				DEBB3B89208A752900152C8B /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		DEBB3B8D208A752900152C8B /* LaunchScreen.storyboard */ = {
@@ -421,6 +422,7 @@
 				DEBB3B8E208A752900152C8B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
