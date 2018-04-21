@@ -6,6 +6,7 @@
 //  Copyright © 2018 Evgeniy. All rights reserved.
 //
 
+import Kingfisher
 import UIKit
 
 enum PlaceStatusType: String {
@@ -14,7 +15,7 @@ enum PlaceStatusType: String {
 }
 
 struct PlaceDisplayModel {
-    let image: UIImage
+    let imageLink: String
     let name: String
     let rating: Double
     let category: String
@@ -40,16 +41,28 @@ final class PlaceCell: UITableViewCell {
     
     // MARK: - Setters
     
-    var model: PlaceDisplayModel?
+    var model: PlaceDisplayModel? {
+        didSet {
+            guard let model = model else { return }
+            updateView(with: model)
+        }
+    }
     
     // MARK: - Update view
     
     private func updateView(with model: PlaceDisplayModel) {
-        placeImageView.image = model.image
+        // placeImageView.image = model.image
+        let url = URL(string: model.imageLink)
+        
+        placeImageView.kf.setImage(with: url)
         nameLabel.text = model.name
         ratingLabel.text = "(\(model.rating.rounded()))"
         categoryLabel.text = model.category
         distanceLabel.text = "\(model.distance.rounded()) "
         statusLabel.text = model.status.rawValue
+    }
+    
+    private func getImageLink(for token: String) -> Void {
+        let url = "https://maps.googleapis.com/maps/api/place/photo"
     }
 }

@@ -26,12 +26,17 @@ public struct PlaceModel {
     let types: [String]
     
     let address: String
+    
+    let isOpen: Bool
+    
+    let photo: [PlacePhotoModel]
+    
+    let categories: [String]
 }
 
 struct PlacePhotoModel {
     let height: Int
     let width: Int
     
-    let attr: [String]
-    let reference: String
+    let link: String
 }

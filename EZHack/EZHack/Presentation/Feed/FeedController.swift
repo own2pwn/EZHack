@@ -8,6 +8,7 @@
 
 import CoreLocation
 import GooglePlaces
+import Kingfisher
 import UIKit
 
 final class FeedController: UIViewController {
@@ -31,6 +32,8 @@ final class FeedController: UIViewController {
     private let provider = PlaceProvider.shared
     
     private var placesClient: GMSPlacesClient!
+    
+    private var datasource: [PlaceModel] = []
     
     // MARK: - Methods
     
@@ -61,11 +64,47 @@ final class FeedController: UIViewController {
     }
     
     private func updateView(with placeList: [PlaceModel]) {
+        datasource = placeList
+        placeTableView.reloadData()
     }
     
     // MARK: - Actions
     
     @IBAction func retestLocation(_ sender: UIButton) {
         testMyLocation()
+    }
+}
+
+extension FeedController: UITableViewDelegate {
+}
+
+extension FeedController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return datasource.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: PlaceCell = tableView.dequeueReusableCell(at: indexPath)
+        
+        let item = datasource[indexPath.row]
+        let model = buildModel(using: item)
+        cell.model = model
+        cell.selectionStyle = .none
+        
+        return cell
+    }
+    
+    private func buildModel(using item: PlaceModel) -> PlaceDisplayModel {
+        let cat = item.categories.first == "point_of_interest" ? "достопримечательность" : item.categories[0]
+        
+        let me = locator.lastKnownLocation!
+        let dist = CLLocationCoordinate2D.distance(from: item.location, to: me)
+        
+        let status = item.isOpen ? PlaceStatusType.open : .closed
+        let link = item.photo.first?.link ?? item.categoryIcon
+        
+        let model = PlaceDisplayModel(imageLink: link, name: item.name, rating: item.rating, category: cat, distance: dist, status: status)
+        
+        return model
     }
 }

@@ -16,6 +16,12 @@ public final class LocationManager {
     
     // MARK: - Interface
     
+    public var lastKnownLocation: CLLocationCoordinate2D? {
+        return manager.location?.coordinate
+    }
+    
+    // MARK: - Methods
+    
     public func getCurrentLocation() -> CLLocationPromise {
         let lastKnownLocation = CLLocationPromise(optional: manager.location)
         

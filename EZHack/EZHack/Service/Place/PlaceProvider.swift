@@ -100,7 +100,22 @@ public final class PlaceProvider {
             
             let types = place["types"].arrayObject as! [String]
             
-            let newModel = PlaceModel(location: location, categoryIcon: categoryIcon, id: id, name: name, placeID: placeID, rating: rating, reference: reference, types: types, address: address)
+            let isOpen = place["opening_hours"].dictionaryValue["open_now"]?.bool ?? false
+            
+            var photoModel = [PlacePhotoModel]()
+            let photos = place["photos"].arrayValue
+            for photo in photos {
+                let h = photo["height"].intValue
+                let w = photo["width"].intValue
+                let link = photo["photo_reference"].stringValue
+                
+                let newModel = PlacePhotoModel(height: h, width: w, link: link)
+                photoModel.append(newModel)
+            }
+            
+            let categoryList = place["types"].arrayObject as? [String] ?? [String]()
+            
+            let newModel = PlaceModel(location: location, categoryIcon: categoryIcon, id: id, name: name, placeID: placeID, rating: rating, reference: reference, types: types, address: address, isOpen: isOpen, photo: photoModel, categories: categoryList)
             
             modelList.append(newModel)
         }
