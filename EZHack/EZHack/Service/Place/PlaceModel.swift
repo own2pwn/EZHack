@@ -45,4 +45,8 @@ extension PlaceModel {
     static func DistanceSorter(me: CLLocationCoordinate2D) -> (PlaceModel, PlaceModel) -> Bool {
         return { $0.location.distance(to: me) < $1.location.distance(to: me) }
     }
+    
+    static func RatingSorter(_ lhs: PlaceModel, _ rhs: PlaceModel) -> Bool {
+        return lhs.rating > rhs.rating
+    }
 }

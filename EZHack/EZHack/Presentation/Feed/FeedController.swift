@@ -33,6 +33,8 @@ final class FeedController: UIViewController {
     
     private var placesClient: GMSPlacesClient!
     
+    private var fullList: [PlaceModel] = []
+    
     private var datasource: [PlaceModel] = []
     
     // MARK: - Methods
@@ -65,14 +67,45 @@ final class FeedController: UIViewController {
     
     private func updateView(with placeList: [PlaceModel]) {
         let me = locator.lastKnownLocation!
-        datasource = placeList.sorted(by: PlaceModel.DistanceSorter(me: me))
+        fullList = placeList
+            .sorted(by: PlaceModel.DistanceSorter(me: me))
+        // .filter { !$0.categoryIcon.contains("http") }
+        
+        datasource = fullList
         placeTableView.reloadData()
     }
     
     // MARK: - Actions
     
-    @IBAction func retestLocation(_ sender: UIButton) {
-        testMyLocation()
+    @IBAction func openSettings(_ sender: UIButton) {
+        performSegue(withIdentifier: "showSettings", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? SettingsController {
+            dest.interactionDelegate = self
+        }
+    }
+}
+
+extension FeedController: SettingsInteractionDelegate {
+    func update(with model: SortModel) {
+        datasource = fullList
+        
+        if !model.shouldConsiderClosed {
+            datasource = fullList.filter { $0.isOpen }
+        }
+        
+        let me = locator.lastKnownLocation!
+        
+        switch model.sortType {
+        case .distance:
+            datasource = datasource.sorted(by: PlaceModel.DistanceSorter(me: me))
+        case .rating:
+            datasource = datasource.sorted(by: PlaceModel.RatingSorter)
+        }
+        
+        placeTableView.reloadData()
     }
 }
 

@@ -21,6 +21,16 @@ public extension Bool {
     }
 }
 
+struct SortModel {
+    let shouldConsiderWeather: Bool
+    let sortType: SortType
+    let shouldConsiderClosed: Bool
+}
+
+protocol SettingsInteractionDelegate: class {
+    func update(with model: SortModel)
+}
+
 final class SettingsController: UIViewController {
 
     // MARK: - Outlets
@@ -47,6 +57,8 @@ final class SettingsController: UIViewController {
     }
     
     // MARK: - Members
+    
+    var interactionDelegate: SettingsInteractionDelegate?
     
     private var shouldConsiderWeather = false
     
@@ -82,6 +94,13 @@ final class SettingsController: UIViewController {
     
     @IBAction func toggleConsiderWeather(_ sender: M13Checkbox) {
         shouldConsiderWeather.toggle()
+        updateSortModel()
+    }
+    
+    private func updateSortModel() {
+        let model = SortModel(shouldConsiderWeather: shouldConsiderWeather, sortType: sortType, shouldConsiderClosed: shouldConsiderClosed)
+        
+        interactionDelegate?.update(with: model)
     }
     
     //
@@ -93,6 +112,7 @@ final class SettingsController: UIViewController {
     
     @IBAction func toggleNonWorking(_ sender: M13Checkbox) {
         shouldConsiderClosed.toggle()
+        updateSortModel()
     }
     
     //
@@ -131,6 +151,7 @@ final class SettingsController: UIViewController {
     
     @IBAction func changeSort(_ sender: UISegmentedControl) {
         sortType = sender.selectedSegmentIndex == 0 ? .distance : .rating
+        updateSortModel()
     }
 }
 
