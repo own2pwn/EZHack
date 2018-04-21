@@ -52,17 +52,27 @@ final class PlaceCell: UITableViewCell {
     
     private func updateView(with model: PlaceDisplayModel) {
         // placeImageView.image = model.image
-        let url = URL(string: model.imageLink)
         
-        placeImageView.kf.setImage(with: url)
         nameLabel.text = model.name
         ratingLabel.text = "(\(model.rating.rounded()))"
         categoryLabel.text = model.category
         distanceLabel.text = "\(model.distance.rounded()) "
         statusLabel.text = model.status.rawValue
-    }
-    
-    private func getImageLink(for token: String) -> Void {
-        let url = "https://maps.googleapis.com/maps/api/place/photo"
+        
+        let link = model.imageLink
+        
+        if link.contains("http") {
+            let url = URL(string: model.imageLink)
+            placeImageView.kf.setImage(with: url)
+        } else {
+            // let size = placeImageView.frame.size
+            let maxWidth = 250 // Int(size.width)
+            let maxHeight = 250 // Int(size.height)
+            
+            let constructedLink = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=\(maxWidth)&maxheight=\(maxHeight)&key=\(PlaceProvider.apiKEY)&photoreference=\(link)"
+            
+            let url = URL(string: constructedLink)
+            placeImageView.kf.setImage(with: url)
+        }
     }
 }

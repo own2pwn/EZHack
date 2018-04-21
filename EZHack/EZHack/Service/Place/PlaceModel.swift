@@ -40,3 +40,9 @@ struct PlacePhotoModel {
     
     let link: String
 }
+
+extension PlaceModel {
+    static func DistanceSorter(me: CLLocationCoordinate2D) -> (PlaceModel, PlaceModel) -> Bool {
+        return { $0.location.distance(to: me) < $1.location.distance(to: me) }
+    }
+}

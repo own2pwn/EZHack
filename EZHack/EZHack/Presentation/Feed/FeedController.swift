@@ -64,7 +64,9 @@ final class FeedController: UIViewController {
     }
     
     private func updateView(with placeList: [PlaceModel]) {
-        datasource = placeList
+        let me = locator.lastKnownLocation!
+        datasource = placeList.sorted(by: PlaceModel.DistanceSorter(me: me))
+        // datasource = placeList
         placeTableView.reloadData()
     }
     

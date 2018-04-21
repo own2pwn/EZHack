@@ -26,9 +26,24 @@ public final class PlaceProvider {
     
     private static let baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
     
-    private static let apiKEY = "AIzaSyAhE7VMP3oybjetIhBqEk-WLJCN-5HYacE"
+    static let apiKEY = "AIzaSyAhE7VMP3oybjetIhBqEk-WLJCN-5HYacE"
     
     // MARK: - Interface
+    
+    public static func getImageLink(for ref: String, maxFrame: CGSize, result: @escaping (String) -> Void) {
+        let maxWidth = Int(maxFrame.width)
+        let maxHeight = Int(maxFrame.height)
+        
+        let str = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=\(maxWidth)&maxheight=\(maxHeight)&key=\(PlaceProvider.apiKEY)&photoreference=\(ref)"
+        
+        let url = URL(string: str)!
+        
+        Alamofire.request(url).responseString { r in
+            let str = r.result.value
+            log.debug(str)
+        }.resume()
+        
+    }
     
     public func get(by location: CLLocationCoordinate2D, radius: Double = 300, rank: PlaceRankType = .prominence) -> PlaceListPromise {
         let query = params(for: location, radius: radius, rank: rank)
