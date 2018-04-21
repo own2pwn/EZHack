@@ -6,5 +6,6 @@ target 'EZHack' do
     pod 'GoogleMaps'
     pod 'GooglePlaces'
     pod 'fluid-slider'
+    pod 'M13Checkbox'
 
 end

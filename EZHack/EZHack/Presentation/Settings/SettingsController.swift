@@ -7,6 +7,7 @@
 //
 
 import fluid_slider
+import M13Checkbox
 import UIKit
 
 final class SettingsController: UIViewController {
@@ -14,6 +15,10 @@ final class SettingsController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet var distanceSlider: Slider!
+    
+    @IBOutlet var useWeatherView: UIView!
+    
+    @IBOutlet var checkboxButton: M13Checkbox!
     
     // MARK: - Overrides
     
@@ -32,6 +37,12 @@ final class SettingsController: UIViewController {
     private func setup() {
         let setup = [setColors, setupSlider]
         setup.forEach { $0() }
+        
+        useWeatherView.tapHandler = onWeatherTap
+    }
+    
+    private func onWeatherTap() {
+        checkboxButton.toggleCheckState(true)
     }
     
     private func setColors() {

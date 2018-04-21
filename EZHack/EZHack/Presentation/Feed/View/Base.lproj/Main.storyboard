@@ -159,9 +159,68 @@
                                     <constraint firstAttribute="height" constant="48" id="cHb-Sz-rzt"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZSK-pY-wBr">
+                                <rect key="frame" x="0.0" y="116" width="375" height="256"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mab-4g-OPC">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
+                                        <subviews>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Consider current weather conditions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKx-dC-siG">
+                                                <rect key="frame" x="8" y="15" width="271.5" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UH6-tc-2G8" customClass="M13Checkbox" customModule="M13Checkbox">
+                                                <rect key="frame" x="335" y="12.5" width="24" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="24" id="StN-HH-szS"/>
+                                                    <constraint firstAttribute="height" constant="24" id="hP0-IX-eGY"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="secondaryTintColor">
+                                                        <color key="value" red="0.2274509804" green="0.6588235294" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="secondaryCheckmarkTintColor">
+                                                        <color key="value" red="0.25323133409999998" green="0.77317921550000002" blue="0.37809978830000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.83529411760000005" green="0.31764705879999999" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="UH6-tc-2G8" firstAttribute="centerY" secondItem="EKx-dC-siG" secondAttribute="centerY" id="AvY-bZ-iC8"/>
+                                            <constraint firstItem="EKx-dC-siG" firstAttribute="leading" secondItem="Mab-4g-OPC" secondAttribute="leading" constant="8" id="MGc-r8-7gB"/>
+                                            <constraint firstItem="EKx-dC-siG" firstAttribute="centerY" secondItem="Mab-4g-OPC" secondAttribute="centerY" id="SIy-hN-jF0"/>
+                                            <constraint firstAttribute="trailing" secondItem="UH6-tc-2G8" secondAttribute="trailing" constant="16" id="aVe-iX-8Xu"/>
+                                            <constraint firstAttribute="height" constant="48" id="f0y-rm-3y4"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iJC-F4-Brk">
+                                        <rect key="frame" x="0.0" y="48" width="375" height="48"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="Php-4B-960"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.2274509804" green="0.6588235294" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Mab-4g-OPC" firstAttribute="leading" secondItem="ZSK-pY-wBr" secondAttribute="leading" id="9Kg-uU-xfK"/>
+                                    <constraint firstAttribute="trailing" secondItem="iJC-F4-Brk" secondAttribute="trailing" id="DkR-OQ-KNE"/>
+                                    <constraint firstItem="Mab-4g-OPC" firstAttribute="top" secondItem="ZSK-pY-wBr" secondAttribute="top" id="P62-df-TbU"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mab-4g-OPC" secondAttribute="trailing" id="PeD-Bh-zA3"/>
+                                    <constraint firstItem="iJC-F4-Brk" firstAttribute="top" secondItem="Mab-4g-OPC" secondAttribute="bottom" id="dwW-9o-GUh"/>
+                                    <constraint firstAttribute="height" constant="256" id="sIS-U0-qle"/>
+                                    <constraint firstItem="iJC-F4-Brk" firstAttribute="leading" secondItem="ZSK-pY-wBr" secondAttribute="leading" id="y65-UL-olw"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.11764705882352941" green="0.29803921568627451" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="ZSK-pY-wBr" firstAttribute="leading" secondItem="nsP-BV-d73" secondAttribute="leading" id="8dh-1d-TM0"/>
+                            <constraint firstItem="nsP-BV-d73" firstAttribute="trailing" secondItem="ZSK-pY-wBr" secondAttribute="trailing" id="CCE-Gb-rYV"/>
+                            <constraint firstItem="ZSK-pY-wBr" firstAttribute="top" secondItem="lzd-Xb-fKp" secondAttribute="bottom" id="JJX-BO-8nP"/>
                             <constraint firstItem="lzd-Xb-fKp" firstAttribute="leading" secondItem="nsP-BV-d73" secondAttribute="leading" constant="16" id="R55-kU-Ssh"/>
                             <constraint firstItem="nsP-BV-d73" firstAttribute="trailing" secondItem="lzd-Xb-fKp" secondAttribute="trailing" constant="16" id="vhw-ow-V2o"/>
                             <constraint firstItem="lzd-Xb-fKp" firstAttribute="top" secondItem="nsP-BV-d73" secondAttribute="top" constant="48" id="ytn-ae-Ppa"/>
@@ -169,7 +228,9 @@
                         <viewLayoutGuide key="safeArea" id="nsP-BV-d73"/>
                     </view>
                     <connections>
+                        <outlet property="checkboxButton" destination="UH6-tc-2G8" id="z3M-X4-JIf"/>
                         <outlet property="distanceSlider" destination="lzd-Xb-fKp" id="3PR-hJ-ki3"/>
+                        <outlet property="useWeatherView" destination="Mab-4g-OPC" id="4Jr-Xg-2VK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GRZ-oI-3VO" userLabel="First Responder" sceneMemberID="firstResponder"/>
