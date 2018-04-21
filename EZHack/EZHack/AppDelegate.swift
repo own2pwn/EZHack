@@ -6,6 +6,7 @@
 //  Copyright © 2018 Evgeniy. All rights reserved.
 //
 
+import GooglePlaces
 import UIKit
 
 @UIApplicationMain
@@ -14,12 +15,12 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
         Logger.setupLogging()
+        GMSPlacesClient.provideAPIKey("AIzaSyAhE7VMP3oybjetIhBqEk-WLJCN-5HYacE")
 
         return true
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         return true
     }
 

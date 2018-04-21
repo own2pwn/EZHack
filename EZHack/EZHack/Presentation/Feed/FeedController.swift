@@ -7,6 +7,7 @@
 //
 
 import CoreLocation
+import GooglePlaces
 import UIKit
 
 final class FeedController: UIViewController {
@@ -25,10 +26,15 @@ final class FeedController: UIViewController {
     
     private let locator = LocationManager()
     
+    private let provider = PlaceProvider.shared
+    
+    private var placesClient: GMSPlacesClient!
+    
     // MARK: - Methods
     
     private func setupScreen() {
         setup()
+        placesClient = GMSPlacesClient.shared()
     }
     
     private func setup() {
@@ -49,7 +55,13 @@ final class FeedController: UIViewController {
     }
     
     private func printMyLocation(_ location: CLLocation) {
-        log.debug("got location - \(location)")
+        //provider.get(by: location.coordinate)
+        
+        placesClient.currentPlace { list, err in
+            guard let list = list else { log.warning(err?.localizedDescription); return }
+            
+            let v = list.likelihoods
+        }
     }
     
     // MARK: - Actions
