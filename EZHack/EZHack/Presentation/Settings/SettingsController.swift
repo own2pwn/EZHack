@@ -43,6 +43,7 @@ final class SettingsController: UIViewController {
         super.viewDidLoad()
         
         setupScreen()
+        [checkboxButton, nonWorkingCheckbox].forEach { $0.setCheckState(.checked, animated: false) }
     }
     
     // MARK: - Members
@@ -147,7 +148,14 @@ extension SettingsController: UITableViewDataSource {
         let item = categoryTitles[indexPath.row]
         cell.titleLabel.text = item
         cell.selectionStyle = .none
+        cell.checkboxButton.boxType = .square
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? SettingsCell {
+            cell.checkboxButton.toggleCheckState(true)
+        }
     }
 }
