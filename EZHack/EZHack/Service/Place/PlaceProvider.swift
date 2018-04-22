@@ -16,7 +16,7 @@ public enum PlaceRankType: String {
     case prominence
 }
 
-public typealias PlaceSearcResultPromise = Promise<PlaceSearchResultModel>
+public typealias PlaceSearchResultPromise = Promise<PlaceSearchResultModel>
 
 public typealias PlaceListPromise = Promise<[PlaceModel]>
 
@@ -32,9 +32,9 @@ public final class PlaceProvider {
     
     // MARK: - Interface
     
-    public func get(by location: CLLocationCoordinate2D, in radius: Double = 300, rank: PlaceRankType = .prominence) -> PlaceSearcResultPromise {
+    public func get(by location: CLLocationCoordinate2D, in radius: Double = 300, rank: PlaceRankType = .prominence) -> PlaceSearchResultPromise {
         let query = params(for: location, radius: radius, rank: rank)
-        let searchResult = PlaceSearcResultPromise()
+        let searchResult = PlaceSearchResultPromise()
         
         Alamofire.request(PlaceProvider.baseURL, method: .get,
                           parameters: query,
@@ -44,8 +44,8 @@ public final class PlaceProvider {
         return searchResult
     }
     
-    public func get(by token: String) -> PlaceSearcResultPromise {
-        let searchResult = PlaceSearcResultPromise()
+    public func get(by token: String) -> PlaceSearchResultPromise {
+        let searchResult = PlaceSearchResultPromise()
         
         let str = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=\(PlaceProvider.apiKEY)&pagetoken=\(token)"
         let url = URL(string: str)!
@@ -60,7 +60,7 @@ public final class PlaceProvider {
         return searchResult
     }
     
-    private func processResponse(_ r: DataResponse<Any>, promise: PlaceSearcResultPromise) {
+    private func processResponse(_ r: DataResponse<Any>, promise: PlaceSearchResultPromise) {
         guard let data = r.data else {
             log.error("no data")
             return

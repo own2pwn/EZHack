@@ -190,6 +190,8 @@ final class FeedController: UIViewController {
     
     private func getNearbyPlaces(_ location: CLLocation) {
         provider.get(by: location.coordinate).then(updateView)
+        
+        let r: PlaceSearchResultPromise = provider.get(by: location.coordinate)
     }
     
     private func updateView(with placeList: [PlaceModel]) {
