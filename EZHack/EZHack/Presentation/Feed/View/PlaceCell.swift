@@ -8,6 +8,7 @@
 
 import Kingfisher
 import UIKit
+import CoreLocation
 
 enum PlaceStatusType: String {
     case open = "открыто"
@@ -21,6 +22,7 @@ struct PlaceDisplayModel {
     let category: String
     let distance: Double
     let status: PlaceStatusType
+    let location: CLLocationCoordinate2D
 }
 
 final class PlaceCell: UITableViewCell {

@@ -32,7 +32,7 @@ public final class LocationManager {
         if !canProcess { print("Smth wrong with CLLocation!") }
         
         if CLLocationManager.authorizationStatus() == .notDetermined {
-            manager.requestWhenInUseAuthorization()
+            manager.requestAlwaysAuthorization()
         }
     }
     
