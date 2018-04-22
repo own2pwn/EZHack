@@ -218,6 +218,7 @@
                         <outlet property="mapHeight" destination="scc-zK-ycA" id="Hd2-Uw-AiW"/>
                         <outlet property="mapView" destination="5qX-ih-DL2" id="eje-kb-P15"/>
                         <outlet property="placeTableView" destination="KWA-aq-SAb" id="j4c-hB-eMb"/>
+                        <outlet property="topHeaderView" destination="wLg-Gs-hk6" id="fmh-lJ-aHk"/>
                         <outlet property="weatherImageView" destination="99k-rW-xLd" id="aII-5K-nPO"/>
                         <outlet property="weatherLabel" destination="vP9-2l-yXo" id="DUN-Vc-SpE"/>
                         <segue destination="qcO-xq-PtR" kind="presentation" identifier="showSettings" id="xaB-SW-dPY"/>

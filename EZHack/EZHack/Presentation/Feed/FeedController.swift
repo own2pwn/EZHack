@@ -22,12 +22,16 @@ final class FeedController: UIViewController {
     
     @IBOutlet var weatherLabel: UILabel!
     
+    @IBOutlet var topHeaderView: UIView!
+    
     // MARK: - Overrides
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupScreen()
+        
+        topHeaderView.applyGradient(with: [#colorLiteral(red: 0.5975912213, green: 0.3411847949, blue: 0.7378113866, alpha: 1), #colorLiteral(red: 0.5461038947, green: 0.2558558583, blue: 0.703636229, alpha: 1)])
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
@@ -191,7 +195,23 @@ final class FeedController: UIViewController {
     private func getNearbyPlaces(_ location: CLLocation) {
         provider.get(by: location.coordinate).then(updateView)
         
-        let r: PlaceSearchResultPromise = provider.get(by: location.coordinate)
+        let r = provider.getResults(by: location.coordinate).then { [provider = provider] result in
+            var merged = result.results
+            
+            let secondPage = provider.getResults(by: result.nextPageToken)
+            secondPage.then {
+                merged.append(contentsOf: $0.results)
+                
+                provider.getResults(by: $0.nextPageToken).then { results -> [PlaceModel] in
+                    let places = results.results
+                    merged.append(contentsOf: places)
+                    
+                    log.debug("^Cnt: \(merged.count)")
+                    
+                    return merged
+                }.then(self.updateView)
+            }
+        }
     }
     
     private func updateView(with placeList: [PlaceModel]) {

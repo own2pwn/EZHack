@@ -32,7 +32,7 @@ public final class PlaceProvider {
     
     // MARK: - Interface
     
-    public func get(by location: CLLocationCoordinate2D, in radius: Double = 300, rank: PlaceRankType = .prominence) -> PlaceSearchResultPromise {
+    public func getResults(by location: CLLocationCoordinate2D, in radius: Double = 300, rank: PlaceRankType = .prominence) -> PlaceSearchResultPromise {
         let query = params(for: location, radius: radius, rank: rank)
         let searchResult = PlaceSearchResultPromise()
         
@@ -44,7 +44,7 @@ public final class PlaceProvider {
         return searchResult
     }
     
-    public func get(by token: String) -> PlaceSearchResultPromise {
+    public func getResults(by token: String) -> PlaceSearchResultPromise {
         let searchResult = PlaceSearchResultPromise()
         
         let str = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=\(PlaceProvider.apiKEY)&pagetoken=\(token)"
