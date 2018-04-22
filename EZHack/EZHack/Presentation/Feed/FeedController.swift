@@ -194,9 +194,14 @@ final class FeedController: UIViewController {
     
     private func updateView(with placeList: [PlaceModel]) {
         let me = locator.lastKnownLocation!
+        
         fullList = placeList
             .sorted(by: PlaceModel.DistanceSorter(me: me))
             .filter { $0.photo.first?.link != nil }
+            .filter {
+                let cats = $0.categories
+                return !cats.contains("locality") && !cats.contains("sublocality_level_1")
+            }
         
         datasource = fullList
         placeTableView.reloadData()

@@ -45,42 +45,21 @@ final class PlaceCell: UITableViewCell {
     
     @IBOutlet var statusLabel: UILabel!
     
+    @IBOutlet var weatheConditionView: UIView!
+    
     // MARK: - Setters
     
     var model: PlaceDisplayModel? {
         didSet {
-            guard let model = model else { return }
+            guard let model = model else {
+                log.warning("empty")
+                return
+            }
             updateView(with: model)
         }
     }
     
     weak var delegate: PlaceCellDelegate?
-    
-    let cats: [String: Any] = ["entertainment": ["zoo", "casino", "night_club", "movie_theater", "aquarium", "amusement_park"],
-                               "beauty": ["spa", "beauty_salon"],
-                               "shopping": ["clothing_store", "shopping_mall", "store"],
-                               "restaurant": "restaurant",
-                               "park": ["park"],
-                               "museum": ["church", "library", "art_gallery"],
-                               "cafe": ["bakery", "cafe"],
-                               "bar": ["bar"]]
-    
-//    entertainment [zoo, casino, night_club, movie_theater, aquarium, amusement_park]
-//
-//    beauty [spa, beauty_salon]
-//
-//
-//    shopping [ clothing_store, shopping_mall, store]
-//
-//    restaurant [restaurant]
-//
-//    park [park]
-//
-//    museum [church, library, art_gallery]
-//
-//    cafe [bakery, cafe]
-//
-//    bar [bar]
     
     // MARK: - Update view
     
@@ -90,15 +69,6 @@ final class PlaceCell: UITableViewCell {
         nameLabel.text = model.name
         ratingLabel.text = "(\(model.rating.rounded()))"
         categoryLabel.text = model.category
-        
-        let badCat = model.category
-        for key in cats.keys {
-            guard let values = cats[key] as? [String] else { return }
-            if values.contains(badCat) {
-                categoryLabel.text = key
-                break
-            }
-        }
         
         let dist = Int(model.distance.rounded())
         distanceLabel.text = "\(dist) m"
@@ -127,9 +97,42 @@ final class PlaceCell: UITableViewCell {
             let url = URL(string: constructedLink)
             placeImageView.kf.setImage(with: url)
         }
+        
+        let badCat = model.category
+        let goodCats = ["restaurant", "cafe", "bar", "shopping"]
+        
+        for key in cats.keys {
+            guard let values = cats[key] as? [String] else {
+                log.warning("bad")
+                continue
+            }
+            if values.contains(badCat) {
+                categoryLabel.text = key
+                break
+            }
+        }
+        
+        if goodCats.contains(categoryLabel.text!) {
+            weatheConditionView.backgroundColor = #colorLiteral(red: 0.262835294, green: 0.8022480607, blue: 0.3886030316, alpha: 1)
+            log.debug("good - \(model.name)")
+        } else {
+            weatheConditionView.backgroundColor = #colorLiteral(red: 0.7378575206, green: 0.2320150733, blue: 0.1414205134, alpha: 1)
+            log.debug("bad - \(model.name)")
+        }
     }
+    
+    // MARK: - Actions
     
     @IBAction func makeRoute(_ sender: Any) {
         delegate?.makeRoute(to: model!.location)
     }
+    
+    private let cats: [String: Any] = ["entertainment": ["zoo", "casino", "night_club", "movie_theater", "aquarium", "amusement_park"],
+                                       "beauty": ["spa", "beauty_salon"],
+                                       "shopping": ["clothing_store", "shopping_mall", "store", "shoe_store"],
+                                       "restaurant": ["restaurant"],
+                                       "park": ["park"],
+                                       "museum": ["church", "library", "art_gallery"],
+                                       "cafe": ["bakery", "cafe"],
+                                       "bar": ["bar"]]
 }
