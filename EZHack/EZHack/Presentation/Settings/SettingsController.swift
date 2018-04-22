@@ -153,6 +153,10 @@ final class SettingsController: UIViewController {
         sortType = sender.selectedSegmentIndex == 0 ? .distance : .rating
         updateSortModel()
     }
+    
+    @IBAction func closeModal(_ sender: Any) {
+        dismiss(animated: true)
+    }
 }
 
 extension SettingsController: UITableViewDelegate {
