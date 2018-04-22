@@ -223,6 +223,20 @@ final class FeedController: UIViewController {
     private var filterModel: SortModel?
 }
 
+extension FeedController: PlaceCellDelegate {
+    func makeRoute(to point: CLLocationCoordinate2D) {
+        if let manager = navigationManager {
+            manager.stop()
+            if let lastRoute = currentMapRoute {
+                mapView.remove(mapObject: lastRoute)
+            }
+        }
+        
+        buildRoute(to: point)
+        placeTableView.setContentOffset(CGPoint(x: 0, y: -maxTopContainerHeight), animated: true)
+    }
+}
+
 extension FeedController: SettingsInteractionDelegate {
     func update(with model: SortModel) {
         filterModel = model
@@ -271,6 +285,7 @@ extension FeedController: UITableViewDataSource {
         let model = buildModel(using: item)
         cell.model = model
         cell.selectionStyle = .none
+        cell.delegate = self
         
         return cell
     }
@@ -294,18 +309,5 @@ extension FeedController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) as? PlaceCell,
-            let model = cell.model else { return }
-        
-        if let manager = navigationManager {
-            manager.stop()
-            if let lastRoute = currentMapRoute {
-                mapView.remove(mapObject: lastRoute)
-            }
-        }
-        
-        let placeLocation = model.location
-        buildRoute(to: placeLocation)
-        placeTableView.setContentOffset(CGPoint(x: 0, y: -maxTopContainerHeight), animated: true)
     }
 }

@@ -120,10 +120,23 @@
                                                         <constraint firstAttribute="trailing" secondItem="4jo-or-IKq" secondAttribute="trailing" id="Ttd-Gj-TKc"/>
                                                     </constraints>
                                                 </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U37-e2-81i">
+                                                    <rect key="frame" x="311" y="35.5" width="48" height="48"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="48" id="Evf-8i-MSS"/>
+                                                        <constraint firstAttribute="height" constant="48" id="HYO-hS-G9H"/>
+                                                    </constraints>
+                                                    <state key="normal" image="ic-route"/>
+                                                    <connections>
+                                                        <action selector="makeRoute:" destination="Ej8-sa-IGn" eventType="touchUpInside" id="4hY-Qa-edX"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Fub-by-64q" firstAttribute="leading" secondItem="Rhu-SA-Np0" secondAttribute="trailing" constant="22" id="Ax2-Sd-RWp"/>
                                                 <constraint firstItem="Rhu-SA-Np0" firstAttribute="leading" secondItem="QWp-wI-nro" secondAttribute="leading" constant="16" id="CXn-aH-iPA"/>
+                                                <constraint firstAttribute="trailing" secondItem="U37-e2-81i" secondAttribute="trailing" constant="16" id="Iox-60-Vh0"/>
+                                                <constraint firstItem="U37-e2-81i" firstAttribute="centerY" secondItem="Rhu-SA-Np0" secondAttribute="centerY" id="R5p-qA-NQ0"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Fub-by-64q" secondAttribute="trailing" constant="16" id="n9I-6s-fva"/>
                                                 <constraint firstItem="Fub-by-64q" firstAttribute="centerY" secondItem="Rhu-SA-Np0" secondAttribute="centerY" id="sua-yZ-TuD"/>
                                                 <constraint firstItem="Rhu-SA-Np0" firstAttribute="top" secondItem="QWp-wI-nro" secondAttribute="top" constant="12" id="wz4-Fb-us1"/>
@@ -483,6 +496,7 @@
     </scenes>
     <resources>
         <image name="ic-close" width="32" height="32"/>
+        <image name="ic-route" width="25" height="25"/>
         <image name="ic-settings" width="32" height="32"/>
         <image name="ic-star" width="24" height="24"/>
         <image name="image" width="1600" height="900"/>

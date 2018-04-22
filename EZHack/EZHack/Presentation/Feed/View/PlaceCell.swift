@@ -25,6 +25,10 @@ struct PlaceDisplayModel {
     let location: CLLocationCoordinate2D
 }
 
+protocol PlaceCellDelegate: class {
+    func makeRoute(to point: CLLocationCoordinate2D)
+}
+
 final class PlaceCell: UITableViewCell {
 
     // MARK: - Outlets
@@ -49,6 +53,8 @@ final class PlaceCell: UITableViewCell {
             updateView(with: model)
         }
     }
+    
+    weak var delegate: PlaceCellDelegate?
     
     // MARK: - Update view
     
@@ -86,5 +92,9 @@ final class PlaceCell: UITableViewCell {
             let url = URL(string: constructedLink)
             placeImageView.kf.setImage(with: url)
         }
+    }
+    
+    @IBAction func makeRoute(_ sender: Any) {
+        delegate?.makeRoute(to: model!.location)
     }
 }
