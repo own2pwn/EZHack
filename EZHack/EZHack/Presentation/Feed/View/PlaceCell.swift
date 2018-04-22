@@ -56,6 +56,32 @@ final class PlaceCell: UITableViewCell {
     
     weak var delegate: PlaceCellDelegate?
     
+    let cats: [String: Any] = ["entertainment": ["zoo", "casino", "night_club", "movie_theater", "aquarium", "amusement_park"],
+                               "beauty": ["spa", "beauty_salon"],
+                               "shopping": ["clothing_store", "shopping_mall", "store"],
+                               "restaurant": "restaurant",
+                               "park": ["park"],
+                               "museum": ["church", "library", "art_gallery"],
+                               "cafe": ["bakery", "cafe"],
+                               "bar": ["bar"]]
+    
+//    entertainment [zoo, casino, night_club, movie_theater, aquarium, amusement_park]
+//
+//    beauty [spa, beauty_salon]
+//
+//
+//    shopping [ clothing_store, shopping_mall, store]
+//
+//    restaurant [restaurant]
+//
+//    park [park]
+//
+//    museum [church, library, art_gallery]
+//
+//    cafe [bakery, cafe]
+//
+//    bar [bar]
+    
     // MARK: - Update view
     
     private func updateView(with model: PlaceDisplayModel) {
@@ -64,6 +90,15 @@ final class PlaceCell: UITableViewCell {
         nameLabel.text = model.name
         ratingLabel.text = "(\(model.rating.rounded()))"
         categoryLabel.text = model.category
+        
+        let badCat = model.category
+        for key in cats.keys {
+            guard let values = cats[key] as? [String] else { return }
+            if values.contains(badCat) {
+                categoryLabel.text = key
+                break
+            }
+        }
         
         let dist = Int(model.distance.rounded())
         distanceLabel.text = "\(dist) m"

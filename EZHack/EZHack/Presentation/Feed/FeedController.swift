@@ -295,7 +295,7 @@ extension FeedController: UITableViewDataSource {
     }
     
     private func buildModel(using item: PlaceModel) -> PlaceDisplayModel {
-        let cat = item.categories.first == "point_of_interest" ? "достопримечательность" : item.categories[0]
+        let cat = item.categories.first == "point_of_interest" ? "sight" : item.categories[0]
         
         let me = locator.lastKnownLocation!
         let dist = CLLocationCoordinate2D.distance(from: item.location, to: me)
