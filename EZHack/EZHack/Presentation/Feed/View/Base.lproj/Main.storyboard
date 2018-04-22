@@ -461,6 +461,7 @@
                         <outlet property="distanceSlider" destination="lzd-Xb-fKp" id="3PR-hJ-ki3"/>
                         <outlet property="nonWorkingCheckbox" destination="VlN-Ef-3Z2" id="a7l-8a-fAf"/>
                         <outlet property="nonWorkingView" destination="GzQ-3Y-GuB" id="trI-v5-ADN"/>
+                        <outlet property="segment" destination="MMb-wA-gBB" id="Dml-0L-idc"/>
                         <outlet property="titleTableView" destination="sht-gr-Wx7" id="oT0-ZO-Tb7"/>
                         <outlet property="useWeatherView" destination="Mab-4g-OPC" id="4Jr-Xg-2VK"/>
                     </connections>

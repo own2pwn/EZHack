@@ -221,6 +221,7 @@ final class FeedController: UIViewController {
                 dest.shouldConsiderWeather = m.shouldConsiderWeather
                 dest.sortType = m.sortType
                 dest.shouldConsiderClosed = m.shouldConsiderClosed
+                dest.distance = m.distance
             }
         }
     }

@@ -48,6 +48,8 @@ final class SettingsController: UIViewController {
     
     @IBOutlet var titleTableView: UITableView!
     
+    @IBOutlet var segment: UISegmentedControl!
+    
     // MARK: - Overrides
     
     override func viewDidLoad() {
@@ -60,6 +62,11 @@ final class SettingsController: UIViewController {
         
         checkboxButton.setCheckState(cbState, animated: false)
         nonWorkingCheckbox.setCheckState(nwState, animated: false)
+        
+        switch sortType {
+        case .distance: segment.selectedSegmentIndex = 0
+        case .rating: segment.selectedSegmentIndex = 1
+        }
         
         // [checkboxButton, nonWorkingCheckbox].forEach { $0.setCheckState(.checked, animated: false) }
     }
@@ -74,6 +81,8 @@ final class SettingsController: UIViewController {
     
     var shouldConsiderClosed = true
     
+    var distance: Double = 200
+    
     let categoryTitles = ["Entertainment", "Beauty", "shopping", "restaurant", "park", "museum",
                           "cafe", "bar"].map { $0.capitalized }
     
@@ -81,6 +90,8 @@ final class SettingsController: UIViewController {
     
     private func setupScreen() {
         setup()
+        
+        distanceSlider.fraction = (CGFloat(distance) - 200) / 5_000
     }
     
     private func setup() {
@@ -146,11 +157,11 @@ final class SettingsController: UIViewController {
         distanceSlider.shadowColor = UIColor(white: 0, alpha: 0.1)
         distanceSlider.contentViewColor = #colorLiteral(red: 0.2222073078, green: 0.6842822433, blue: 0.3299767971, alpha: 1)
         distanceSlider.valueViewColor = .white
-        distanceSlider.didBeginTracking = { [weak self] slider in
-            log.debug("value: \(slider.fraction * 5_000 + 200)")
+        distanceSlider.didBeginTracking = { [weak self] _ in
+            self?.updateSortModel()
         }
-        distanceSlider.didEndTracking = { [weak self] slider in
-            log.debug("value: \(slider.fraction * 5_000 + 200)")
+        distanceSlider.didEndTracking = { [weak self] _ in
+            self?.updateSortModel()
         }
         
         distanceSlider.fraction = (2_500 - 200) / 5_000
