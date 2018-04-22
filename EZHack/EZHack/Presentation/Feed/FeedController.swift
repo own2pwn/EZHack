@@ -211,12 +211,22 @@ final class FeedController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destination as? SettingsController {
             dest.interactionDelegate = self
+            
+            if let m = filterModel {
+                dest.shouldConsiderWeather = m.shouldConsiderWeather
+                dest.sortType = m.sortType
+                dest.shouldConsiderClosed = m.shouldConsiderClosed
+            }
         }
     }
+    
+    private var filterModel: SortModel?
 }
 
 extension FeedController: SettingsInteractionDelegate {
     func update(with model: SortModel) {
+        filterModel = model
+        
         datasource = fullList
         
         if !model.shouldConsiderClosed {

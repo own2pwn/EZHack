@@ -53,18 +53,25 @@ final class SettingsController: UIViewController {
         super.viewDidLoad()
         
         setupScreen()
-        [checkboxButton, nonWorkingCheckbox].forEach { $0.setCheckState(.checked, animated: false) }
+        
+        let cbState: M13Checkbox.CheckState = shouldConsiderWeather ? .checked : .unchecked
+        let nwState: M13Checkbox.CheckState = shouldConsiderClosed ? .checked : .unchecked
+        
+        checkboxButton.setCheckState(cbState, animated: false)
+        nonWorkingCheckbox.setCheckState(nwState, animated: false)
+        
+        // [checkboxButton, nonWorkingCheckbox].forEach { $0.setCheckState(.checked, animated: false) }
     }
     
     // MARK: - Members
     
     var interactionDelegate: SettingsInteractionDelegate?
     
-    private var shouldConsiderWeather = true
+    var shouldConsiderWeather = true
     
-    private var sortType: SortType = .distance
+    var sortType: SortType = .distance
     
-    private var shouldConsiderClosed = true
+    var shouldConsiderClosed = true
     
     let categoryTitles = ["Entertainment", "Beauty", "shopping", "restaurant", "park", "museum",
                           "cafe", "bar"].map { $0.capitalized }
