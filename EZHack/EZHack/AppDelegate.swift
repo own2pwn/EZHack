@@ -7,6 +7,7 @@
 //
 
 import GooglePlaces
+import NMAKit
 import UIKit
 
 @UIApplicationMain
@@ -16,6 +17,12 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
         Logger.setupLogging()
         GMSPlacesClient.provideAPIKey("AIzaSyAhE7VMP3oybjetIhBqEk-WLJCN-5HYacE")
+
+        let kHelloMapAppID = "oVoygvHFAOy0GkmQVPff"
+        let kHelloMapAppCode = "6sgXHXciiUyp9WDPwEN36A"
+        let kHelloMapLicenseKey = "N+Ge0LFCE13B6QopX9IviDtuNix7yb0VtIt+uXwQKQILscfwdcQ3qn8Dfgwl6rPXhYh2Vwx4kPmnff1NfEAj7U6kQ1z+N6A/0WoxtU2it8gsnTAlIGj+wlN+tlQJFAhzcOvwJzl437eGE2ya5YPzWDEk5zJ+gFnNKusgsB+0Ae42itV3RCrLAXePLwBlTleat9FuNe+PDgXNuwzE/+N+KkuOkOCvaTnO9OxTgKfIYnrTTaXUqPgKrh4GQx7TjAnUfwlfMNHNBe+RXRlkiFoNdqFgZk67VeH36XCafMLTEa6cNZAmeKv6BUfC1deOFav2bTTwExy17RXGwMSEINg+xqZ/ujHvsyIwOCk0xVl3H1ZKfys6Qp18SpqbaSuAC+HfFDQf3O3JDolFuNXepIuq7/bYS3HMCKVd2U/nwZ/rqrOfXK7tS8B/KEcQSUWV+zt5Whbl8SM/0BYCT1P2xlvTETBAxDHxKoHHutmUUXu4P7d7Ohq44PYt8Erl9k08e6oR5gO5r60PhyPJIVGzQ7NAoS+msQYPM16MgocvpKkxgRsd5z3/AlAjHMRxz3JaH36SKafmnXPuTgsvQAqqjtDi92NtqTKM393D2i2byXpkRNPrYR9hgdg7+W8ckKrRJ52Ka3ICk3JD7Y6R0OxvutDQdn+giSK2ytr68sZndZC3Iqc="
+
+        let result = NMAApplicationContext.setAppId(kHelloMapAppID, appCode: kHelloMapAppCode, licenseKey: kHelloMapLicenseKey)
 
         return true
     }
