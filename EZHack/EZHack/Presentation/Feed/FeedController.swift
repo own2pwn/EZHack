@@ -33,8 +33,18 @@ final class FeedController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        guard locator.lastKnownLocation != nil else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                self.reloadWeather()
+            })
+            return
+        }
+        reloadWeather()
+    }
+    
+    private func reloadWeather() {
+        guard let c = locator.lastKnownLocation else { return }
         let p = WeatherProvider()
-        let c = locator.lastKnownLocation!
         
         p.get(by: c) { m in
             DispatchQueue.main.async {
