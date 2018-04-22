@@ -9,6 +9,11 @@
 import CoreLocation
 import Foundation
 
+public struct PlaceSearchResultModel {
+    let nextPageToken: String
+    let results: [PlaceModel]
+}
+
 public struct PlaceModel {
     let location: CLLocationCoordinate2D
     

@@ -11,7 +11,6 @@
 		B9D83510208BDFEB00927F5F /* RouteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D8350F208BDFEB00927F5F /* RouteController.swift */; };
 		D1D4EF71FE627DE4F2DEFA37 /* Pods_EZHack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887B89DCE2EEEE8358D72994 /* Pods_EZHack.framework */; };
 		DE19D8B2208B6D7900F9F507 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE19D8B1208B6D7900F9F507 /* PlaceCell.swift */; };
-		DE19D8C9208B6DB000F9F507 /* Cell+Reuse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE19D8C8208B6DB000F9F507 /* Cell+Reuse.swift */; };
 		DE19D8CC208B7C4000F9F507 /* CLLocationCoordinate2D+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE19D8CB208B7C4000F9F507 /* CLLocationCoordinate2D+Distance.swift */; };
 		DE31CEEB208B91CF0053313A /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE31CEEA208B91CF0053313A /* SettingsController.swift */; };
 		DE5462B9208BA519009375DE /* UIView+Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE54629D208BA519009375DE /* UIView+Tap.swift */; };
@@ -29,6 +28,7 @@
 		DE5C0E01208C69920042BF72 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5C0D97208C69440042BF72 /* Alamofire.framework */; };
 		DE5C0E02208C69920042BF72 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE5C0D97208C69440042BF72 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DE5C0E06208C6E1A0042BF72 /* WeatherProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5C0E05208C6E1A0042BF72 /* WeatherProvider.swift */; };
+		DE5C0E08208C89210042BF72 /* Cell+Reuse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5C0E07208C89200042BF72 /* Cell+Reuse.swift */; };
 		DE611037208B38BD00AD226F /* PlaceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE611036208B38BD00AD226F /* PlaceProvider.swift */; };
 		DE611059208B393E00AD226F /* RequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE611058208B393E00AD226F /* RequestSender.swift */; };
 		DE73D85A208B2FAC0079B13E /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE73D859208B2FAC0079B13E /* Logger.swift */; };
@@ -306,7 +306,6 @@
 		B9D8350F208BDFEB00927F5F /* RouteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteController.swift; sourceTree = "<group>"; };
 		D8ECF0B79B468DAADB8A320E /* Pods-EZHack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EZHack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EZHack/Pods-EZHack.debug.xcconfig"; sourceTree = "<group>"; };
 		DE19D8B1208B6D7900F9F507 /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
-		DE19D8C8208B6DB000F9F507 /* Cell+Reuse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Cell+Reuse.swift"; path = "../../../../rxDrug/rxDrug/rxDrug/Extension/UIKit/Cell+Reuse.swift"; sourceTree = "<group>"; };
 		DE19D8CB208B7C4000F9F507 /* CLLocationCoordinate2D+Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Distance.swift"; sourceTree = "<group>"; };
 		DE309C98208B349800441E1E /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		DE309C9A208B34A000441E1E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -331,6 +330,7 @@
 		DE5C0DC6208C695C0042BF72 /* SwiftyBeaver.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyBeaver.xcodeproj; path = ../../../../Lib/SwiftyBeaver/SwiftyBeaver.xcodeproj; sourceTree = "<group>"; };
 		DE5C0DD8208C69620042BF72 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = ../../../../Lib/SwiftyJSON/SwiftyJSON.xcodeproj; sourceTree = "<group>"; };
 		DE5C0E05208C6E1A0042BF72 /* WeatherProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherProvider.swift; sourceTree = "<group>"; };
+		DE5C0E07208C89200042BF72 /* Cell+Reuse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Cell+Reuse.swift"; path = "../../../../rxDrug/rxDrug/rxDrug/Extension/UIKit/Cell+Reuse.swift"; sourceTree = "<group>"; };
 		DE611036208B38BD00AD226F /* PlaceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceProvider.swift; sourceTree = "<group>"; };
 		DE611058208B393E00AD226F /* RequestSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSender.swift; sourceTree = "<group>"; };
 		DE73D859208B2FAC0079B13E /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -609,10 +609,10 @@
 		DED20F04208B301D002D169D /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				DE5C0E07208C89200042BF72 /* Cell+Reuse.swift */,
 				DED20F06208B3026002D169D /* Promise */,
 				DED20F05208B3022002D169D /* Type */,
 				DE19D8CB208B7C4000F9F507 /* CLLocationCoordinate2D+Distance.swift */,
-				DE19D8C8208B6DB000F9F507 /* Cell+Reuse.swift */,
 				B93E49FA208C062000C48DD3 /* Comparable+Bound.swift */,
 				DE54629D208BA519009375DE /* UIView+Tap.swift */,
 			);
@@ -1015,9 +1015,9 @@
 				DEBB3B87208A752900152C8B /* FeedController.swift in Sources */,
 				B9D83510208BDFEB00927F5F /* RouteController.swift in Sources */,
 				DED20F08208B302E002D169D /* EPType+Promise.swift in Sources */,
+				DE5C0E08208C89210042BF72 /* Cell+Reuse.swift in Sources */,
 				DE31CEEB208B91CF0053313A /* SettingsController.swift in Sources */,
 				DE73D85A208B2FAC0079B13E /* Logger.swift in Sources */,
-				DE19D8C9208B6DB000F9F507 /* Cell+Reuse.swift in Sources */,
 				DE80F08B208B39AC00FB68BC /* PlaceModel.swift in Sources */,
 				DED20F03208B3003002D169D /* LocationUpdateListener.swift in Sources */,
 				DE611037208B38BD00AD226F /* PlaceProvider.swift in Sources */,
