@@ -25,6 +25,7 @@ struct SortModel {
     let shouldConsiderWeather: Bool
     let sortType: SortType
     let shouldConsiderClosed: Bool
+    let distance: Double
 }
 
 protocol SettingsInteractionDelegate: class {
@@ -105,7 +106,8 @@ final class SettingsController: UIViewController {
     }
     
     private func updateSortModel() {
-        let model = SortModel(shouldConsiderWeather: shouldConsiderWeather, sortType: sortType, shouldConsiderClosed: shouldConsiderClosed)
+        let dist = Double(distanceSlider.fraction * 5_000 + 200)
+        let model = SortModel(shouldConsiderWeather: shouldConsiderWeather, sortType: sortType, shouldConsiderClosed: shouldConsiderClosed, distance: dist)
         
         interactionDelegate?.update(with: model)
     }
@@ -133,7 +135,7 @@ final class SettingsController: UIViewController {
             let formatter = NumberFormatter()
             formatter.maximumIntegerDigits = 4
             formatter.maximumFractionDigits = 0
-            let string = formatter.string(from: (fraction * 5_000 + 200) as NSNumber) ?? ""
+            let string = formatter.string(from: (fraction * 4_800 + 200) as NSNumber) ?? ""
             return NSAttributedString(string: string, attributes: [.font: UIFont.systemFont(ofSize: 14, weight: .bold), .foregroundColor: UIColor.black])
         }
         distanceSlider.setMinimumLabelAttributedText(NSAttributedString(string: "200", attributes: labelTextAttributes))

@@ -261,6 +261,8 @@ extension FeedController: SettingsInteractionDelegate {
             datasource = datasource.sorted(by: PlaceModel.RatingSorter)
         }
         
+        datasource = datasource.filter { $0.location.distance(to: me) <= model.distance }
+        
         placeTableView.reloadData()
     }
     
