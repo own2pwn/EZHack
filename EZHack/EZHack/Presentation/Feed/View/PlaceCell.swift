@@ -65,9 +65,10 @@ final class PlaceCell: UITableViewCell {
     
     private func updateView(with model: PlaceDisplayModel) {
         // placeImageView.image = model.image
+        let rat = Double(Int(model.rating * 10)) / 10
         
         nameLabel.text = model.name
-        ratingLabel.text = "\(model.rating.rounded())"
+        ratingLabel.text = "\(rat)"
         categoryLabel.text = model.category
         
         let dist = Int(model.distance.rounded())
@@ -103,7 +104,6 @@ final class PlaceCell: UITableViewCell {
         
         for key in cats.keys {
             guard let values = cats[key] as? [String] else {
-                log.warning("bad")
                 continue
             }
             if values.contains(badCat) {
@@ -114,10 +114,8 @@ final class PlaceCell: UITableViewCell {
         
         if goodCats.contains(categoryLabel.text!) {
             weatheConditionView.backgroundColor = #colorLiteral(red: 0.262835294, green: 0.8022480607, blue: 0.3886030316, alpha: 1)
-            log.debug("good - \(model.name)")
         } else {
             weatheConditionView.backgroundColor = #colorLiteral(red: 0.7378575206, green: 0.2320150733, blue: 0.1414205134, alpha: 1)
-            log.debug("bad - \(model.name)")
         }
     }
     

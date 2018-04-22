@@ -325,7 +325,7 @@ extension FeedController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 128
     }
     
     private func buildModel(using item: PlaceModel) -> PlaceDisplayModel {
