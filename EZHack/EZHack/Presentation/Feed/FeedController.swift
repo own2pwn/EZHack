@@ -319,6 +319,8 @@ extension FeedController: UITableViewDataSource {
         cell.selectionStyle = .none
         cell.delegate = self
         
+        cell.applyGradient(with: #colorLiteral(red: 0, green: 0.376000531, blue: 0.6191924517, alpha: 1), #colorLiteral(red: 0, green: 0.3019607843, blue: 0.4980392157, alpha: 1))
+        
         return cell
     }
     
