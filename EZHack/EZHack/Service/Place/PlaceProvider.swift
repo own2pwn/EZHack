@@ -28,7 +28,7 @@ public final class PlaceProvider {
     
     private static let baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
     
-    static let apiKEY = "AIzaSyAhE7VMP3oybjetIhBqEk-WLJCN-5HYacE"
+    static let apiKEY = "AIzaSyC4FwEIcD3CNtTq-gUzGzl3PjrRiOwuFCo"
     
     // MARK: - Interface
     
