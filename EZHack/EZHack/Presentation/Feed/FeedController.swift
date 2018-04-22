@@ -223,7 +223,7 @@ extension FeedController: SettingsInteractionDelegate {
             datasource = fullList.filter { $0.isOpen }
         }
         
-        let me = locator.lastKnownLocation!
+        guard let me = locator.lastKnownLocation else { return }
         
         switch model.sortType {
         case .distance:

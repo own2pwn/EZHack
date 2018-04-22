@@ -60,11 +60,11 @@ final class SettingsController: UIViewController {
     
     var interactionDelegate: SettingsInteractionDelegate?
     
-    private var shouldConsiderWeather = false
+    private var shouldConsiderWeather = true
     
     private var sortType: SortType = .distance
     
-    private var shouldConsiderClosed = false
+    private var shouldConsiderClosed = true
     
     let categoryTitles = ["Entertainment", "Beauty", "shopping", "restaurant", "park", "museum",
                           "cafe", "bar"].map { $0.capitalized }
