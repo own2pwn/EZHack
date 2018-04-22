@@ -194,6 +194,7 @@ final class FeedController: UIViewController {
     
     private func updateView(with placeList: [PlaceModel]) {
         let me = locator.lastKnownLocation!
+        let dist = filterModel?.distance ?? 200
         
         fullList = placeList
             .sorted(by: PlaceModel.DistanceSorter(me: me))
@@ -202,6 +203,7 @@ final class FeedController: UIViewController {
                 let cats = $0.categories
                 return !cats.contains("locality") && !cats.contains("sublocality_level_1")
             }
+        datasource = datasource.filter { $0.location.distance(to: me) <= dist }
         
         datasource = fullList
         placeTableView.reloadData()
