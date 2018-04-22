@@ -6,13 +6,13 @@
 //  Copyright © 2018 Evgeniy. All rights reserved.
 //
 
+import CoreLocation
 import Kingfisher
 import UIKit
-import CoreLocation
 
 enum PlaceStatusType: String {
-    case open = "открыто"
-    case closed = "не работает"
+    case open
+    case closed
 }
 
 struct PlaceDisplayModel {
@@ -58,7 +58,17 @@ final class PlaceCell: UITableViewCell {
         nameLabel.text = model.name
         ratingLabel.text = "(\(model.rating.rounded()))"
         categoryLabel.text = model.category
-        distanceLabel.text = "\(model.distance.rounded()) "
+        
+        let dist = Int(model.distance.rounded())
+        distanceLabel.text = "\(dist) m"
+        
+        switch model.status {
+        case .open:
+            statusLabel.textColor = #colorLiteral(red: 0.262835294, green: 0.8022480607, blue: 0.3886030316, alpha: 1)
+        case .closed:
+            statusLabel.textColor = #colorLiteral(red: 0.8881979585, green: 0.3072378635, blue: 0.2069461644, alpha: 1)
+        }
+        
         statusLabel.text = model.status.rawValue
         
         let link = model.imageLink

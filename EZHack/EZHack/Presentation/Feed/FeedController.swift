@@ -13,10 +13,14 @@ import NMAKit
 import UIKit
 
 final class FeedController: UIViewController {
-    
+
     // MARK: - Outlets
     
     @IBOutlet var placeTableView: UITableView!
+    
+    @IBOutlet var weatherImageView: UIImageView!
+    
+    @IBOutlet var weatherLabel: UILabel!
     
     // MARK: - Overrides
     
@@ -24,6 +28,25 @@ final class FeedController: UIViewController {
         super.viewDidLoad()
         
         setupScreen()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let p = WeatherProvider()
+        let c = locator.lastKnownLocation!
+        
+        p.get(by: c) { m in
+            DispatchQueue.main.async {
+                self.updateWeather(with: m)
+            }
+        }
+    }
+    
+    private func updateWeather(with m: WeatherModel) {
+        let intVal = Int(m.temp)
+        weatherLabel.text = "\(intVal) ºC"
+        weatherImageView.kf.setImage(with: URL(string: m.iconURL))
     }
     
     // MARK: - Members

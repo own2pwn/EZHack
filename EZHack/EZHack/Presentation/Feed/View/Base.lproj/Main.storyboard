@@ -138,25 +138,42 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="45m-ZJ-mm3"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5qX-ih-DL2" customClass="NMAMapView">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5qX-ih-DL2" customClass="NMAMapView">
                                 <rect key="frame" x="0.0" y="76" width="375" height="128"/>
                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="scc-zK-ycA"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="99k-rW-xLd">
+                                <rect key="frame" x="16" y="24" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="mhW-kd-wal"/>
+                                    <constraint firstAttribute="height" constant="48" id="wxH-Sn-mk1"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 ºC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vP9-2l-yXo">
+                                <rect key="frame" x="72" y="37" width="43.5" height="22"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <color key="textColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.1176470588" green="0.29803921570000003" blue="0.4823529412" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="99k-rW-xLd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="Dkm-jR-QAr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KWA-aq-SAb" secondAttribute="trailing" id="EEs-zR-rEt"/>
                             <constraint firstItem="EXr-2f-IiB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="Ee5-2c-RgY"/>
+                            <constraint firstItem="vP9-2l-yXo" firstAttribute="centerY" secondItem="EXr-2f-IiB" secondAttribute="centerY" id="M7J-sa-ioM"/>
                             <constraint firstItem="5qX-ih-DL2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WfR-n3-52o"/>
+                            <constraint firstItem="vP9-2l-yXo" firstAttribute="leading" secondItem="99k-rW-xLd" secondAttribute="trailing" constant="8" id="hom-Z3-EVm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KWA-aq-SAb" secondAttribute="bottom" id="kEi-FX-Bps"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5qX-ih-DL2" secondAttribute="trailing" id="kVE-Xg-e6n"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EXr-2f-IiB" secondAttribute="trailing" constant="16" id="mqD-a6-nDc"/>
                             <constraint firstItem="KWA-aq-SAb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nXa-d1-pRc"/>
                             <constraint firstItem="5qX-ih-DL2" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="76" id="ra2-cB-u8a"/>
                             <constraint firstItem="KWA-aq-SAb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="76" id="wpg-k6-jpO"/>
+                            <constraint firstItem="99k-rW-xLd" firstAttribute="centerY" secondItem="EXr-2f-IiB" secondAttribute="centerY" id="zgk-io-cip"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -164,6 +181,8 @@
                         <outlet property="mapHeight" destination="scc-zK-ycA" id="Hd2-Uw-AiW"/>
                         <outlet property="mapView" destination="5qX-ih-DL2" id="eje-kb-P15"/>
                         <outlet property="placeTableView" destination="KWA-aq-SAb" id="j4c-hB-eMb"/>
+                        <outlet property="weatherImageView" destination="99k-rW-xLd" id="aII-5K-nPO"/>
+                        <outlet property="weatherLabel" destination="vP9-2l-yXo" id="DUN-Vc-SpE"/>
                         <segue destination="qcO-xq-PtR" kind="presentation" identifier="showSettings" id="xaB-SW-dPY"/>
                     </connections>
                 </viewController>
