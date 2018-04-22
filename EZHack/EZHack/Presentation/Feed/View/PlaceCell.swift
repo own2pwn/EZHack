@@ -67,7 +67,7 @@ final class PlaceCell: UITableViewCell {
         // placeImageView.image = model.image
         
         nameLabel.text = model.name
-        ratingLabel.text = "(\(model.rating.rounded()))"
+        ratingLabel.text = "\(model.rating.rounded())"
         categoryLabel.text = model.category
         
         let dist = Int(model.distance.rounded())

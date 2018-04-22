@@ -161,7 +161,7 @@
                                             <outlet property="distanceLabel" destination="amX-2p-VYU" id="Jge-eV-GH4"/>
                                             <outlet property="nameLabel" destination="4jo-or-IKq" id="Uff-ad-hP7"/>
                                             <outlet property="placeImageView" destination="Rhu-SA-Np0" id="jnx-fq-WeU"/>
-                                            <outlet property="ratingLabel" destination="HwO-OM-oih" id="2Mf-Lr-4dQ"/>
+                                            <outlet property="ratingLabel" destination="2dz-u2-Yt0" id="D76-21-nPM"/>
                                             <outlet property="statusLabel" destination="miU-hK-Vd4" id="TDu-oG-QIU"/>
                                             <outlet property="weatheConditionView" destination="7Is-rz-xQD" id="mSV-l8-NU8"/>
                                         </connections>
